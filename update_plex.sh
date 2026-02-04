@@ -64,11 +64,13 @@ build_app_tgz() {
     
     local src="$WORK_DIR/extracted/usr/lib/plexmediaserver"
     local dst="$WORK_DIR/app_root"
-    mkdir -p "$dst/bin" "$dst/lib"
+    mkdir -p "$dst/bin" "$dst/lib" "$dst/ui/images"
     
     cp -a "$src"/* "$dst/"
     cp "$PKG_DIR/bin/plex-server" "$dst/bin/"
     chmod +x "$dst/bin/plex-server"
+    
+    cp -a "$PKG_DIR/ui"/* "$dst/ui/"
     
     cd "$dst"
     tar -czf "$WORK_DIR/app.tgz" .
@@ -94,7 +96,6 @@ build_fpk() {
     cp -a "$PKG_DIR/cmd" "$WORK_DIR/package/"
     cp -a "$PKG_DIR/config" "$WORK_DIR/package/"
     cp -a "$PKG_DIR/wizard" "$WORK_DIR/package/"
-    cp -a "$PKG_DIR/ui" "$WORK_DIR/package/"
     cp "$PKG_DIR"/*.sc "$WORK_DIR/package/" 2>/dev/null || true
     cp "$PKG_DIR"/ICON*.PNG "$WORK_DIR/package/"
     cp "$PKG_DIR/manifest" "$WORK_DIR/package/"
