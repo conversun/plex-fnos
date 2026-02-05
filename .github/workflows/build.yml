@@ -96,12 +96,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        arch: [amd64, arm64]
+        arch: [x86, arm]
         include:
-          - arch: amd64
+          - arch: x86
             plex_build: linux-x86_64
             manifest_platform: x86
-          - arch: arm64
+          - arch: arm
             plex_build: linux-aarch64
             manifest_platform: arm
     
@@ -208,9 +208,9 @@ jobs:
           - 默认端口: 32400${REVISION_NOTE}
 
           **国内镜像**:
-          - [plexmediaserver_${VERSION}_amd64.fpk](https://ghfast.top/https://github.com/conversun/plex-fnos/releases/download/${RELEASE_TAG}/plexmediaserver_${VERSION}_amd64.fpk)
-          - [plexmediaserver_${VERSION}_arm64.fpk](https://ghfast.top/https://github.com/conversun/plex-fnos/releases/download/${RELEASE_TAG}/plexmediaserver_${VERSION}_arm64.fpk)" \
-            artifacts/fpk-amd64/*.fpk \
-            artifacts/fpk-arm64/*.fpk
+          - [plexmediaserver_${VERSION}_x86.fpk](https://ghfast.top/https://github.com/conversun/plex-fnos/releases/download/${RELEASE_TAG}/plexmediaserver_${VERSION}_x86.fpk)
+          - [plexmediaserver_${VERSION}_arm.fpk](https://ghfast.top/https://github.com/conversun/plex-fnos/releases/download/${RELEASE_TAG}/plexmediaserver_${VERSION}_arm.fpk)" \
+            artifacts/fpk-x86/*.fpk \
+            artifacts/fpk-arm/*.fpk
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
