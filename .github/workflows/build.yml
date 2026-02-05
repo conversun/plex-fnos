@@ -192,26 +192,25 @@ jobs:
           echo "==> Creating release $RELEASE_TAG"
           ls -la artifacts/*/
           
-          # Determine if this is a revision release
           if [[ "$RELEASE_TAG" == *"-r"* ]]; then
             REVISION_NOTE="
-          - **Packaging Revision**: ${RELEASE_TAG##*-}"
+          - **打包修订**: ${RELEASE_TAG##*-}"
           else
             REVISION_NOTE=""
           fi
           
           gh release create "$RELEASE_TAG" \
             --title "Plex Media Server ${VERSION} for fnOS" \
-            --notes "Auto-built fnOS package
+            --notes "自动构建的 fnOS 安装包
 
-          - Based on [Plex Media Server ${FULL_VERSION}](https://www.plex.tv/media-server-downloads/)
-          - Platform: fnOS
-          - Default port: 32400${REVISION_NOTE}
+          - 基于 [Plex Media Server ${FULL_VERSION}](https://www.plex.tv/media-server-downloads/)
+          - 平台: fnOS
+          - 默认端口: 32400${REVISION_NOTE}
 
-          ## Downloads
+          ## 下载
 
-          | Architecture | File |
-          |--------------|------|
+          | 架构 | 文件 |
+          |------|------|
           | x86_64 (Intel/AMD) | \`plexmediaserver_${VERSION}_amd64.fpk\` |
           | aarch64 (ARM64) | \`plexmediaserver_${VERSION}_arm64.fpk\` |" \
             artifacts/fpk-amd64/*.fpk \
