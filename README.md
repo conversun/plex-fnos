@@ -31,11 +31,11 @@ GitHub Actions 每天自动检查 [Plex 官方下载](https://www.plex.tv/media-
 ./update_plex.sh
 
 # 指定架构
-./update_plex.sh --arch arm64
-./update_plex.sh --arch amd64
+./update_plex.sh --arch arm
+./update_plex.sh --arch x86
 
 # 指定版本
-./update_plex.sh --arch arm64 1.42.2.10156
+./update_plex.sh --arch arm 1.42.2.10156
 
 # 查看帮助
 ./update_plex.sh --help
