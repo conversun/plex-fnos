@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INST_LOG="/var/log/apps/${TRIM_APPNAME}.log"
-FWPORTS_FILE="/var/apps/${TRIM_APPNAME}/etc/${TRIM_APPNAME}.sc"
+FWPORTS_FILE="${TRIM_PKGETC}/${TRIM_APPNAME}.sc"
 TMP_DIR="${TRIM_TEMP_UPGRADE_FOLDER}"
 
 COMMON=$(dirname $0)"/common"
